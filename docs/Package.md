@@ -1,0 +1,40 @@
+# CrxPackageManager::Package
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**pid** | **String** |  | [optional] 
+**path** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
+**download_name** | **String** |  | [optional] 
+**group** | **String** |  | [optional] 
+**group_title** | **String** |  | [optional] 
+**version** | **String** |  | [optional] 
+**description** | **String** |  | [optional] 
+**thumbnail** | **String** |  | [optional] 
+**build_count** | **Integer** |  | [optional] 
+**last_modified** | **Integer** |  | [optional] 
+**last_modified_by** | **String** |  | [optional] 
+**created** | **Integer** |  | [optional] 
+**create_by** | **String** |  | [optional] 
+**last_unpacked** | **Integer** |  | [optional] 
+**last_unpacked_by** | **String** |  | [optional] 
+**last_wrapped** | **Integer** |  | [optional] 
+**last_wrapped_by** | **String** |  | [optional] 
+**last_unwrapped** | **Integer** |  | [optional] 
+**last_unwrapped_by** | **String** |  | [optional] 
+**size** | **Integer** |  | [optional] 
+**has_snapshot** | **BOOLEAN** |  | [optional] 
+**needs_rewrap** | **BOOLEAN** |  | [optional] 
+**built_with** | **String** |  | [optional] 
+**tested_with** | **String** |  | [optional] 
+**fixed_bugs** | **String** |  | [optional] 
+**requires_root** | **BOOLEAN** |  | [optional] 
+**requires_restart** | **BOOLEAN** |  | [optional] 
+**ac_handling** | **String** |  | [optional] 
+**dependencies** | **Array&lt;String&gt;** |  | [optional] 
+**resolved** | **BOOLEAN** |  | [optional] 
+**filter** | [**Array&lt;PackageFilter&gt;**](PackageFilter.md) |  | [optional] 
+**screenshots** | **Array&lt;String&gt;** |  | [optional] 
+
+
