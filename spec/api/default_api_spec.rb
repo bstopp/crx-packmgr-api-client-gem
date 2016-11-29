@@ -119,13 +119,32 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for service
+  # unit tests for service_get
   # Generic operation service.
-  # Provides endpoint for
+  # Provides endpoint for executing package manipulation commands.
   # @param cmd The command to execute.
   # @param [Hash] opts the optional parameters
-  # @return [ServiceResponse]
-  describe 'service test' do
+  # @option opts [String] :name The name of the package on which to execute the command.
+  # @option opts [String] :group The group of the package on which to execute the command.
+  # @option opts [BOOLEAN] :strict Fail on an error.
+  # @return [String]
+  describe 'service_get test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for service_post
+  # Generic operation service.
+  # Provides endpoint for
+  # @param file Package file to upload
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :name The name of the package on installation.
+  # @option opts [BOOLEAN] :strict Fail on an error.
+  # @option opts [BOOLEAN] :force Force the package upload.
+  # @option opts [BOOLEAN] :install Install the package upon upload
+  # @return [String]
+  describe 'service_post test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -10,7 +10,8 @@ Method | HTTP request | Description
 [**installstatus**](DefaultApi.md#installstatus) | **GET** /installstatus.jsp | Package Installation Status
 [**list**](DefaultApi.md#list) | **GET** /list.jsp | List packages
 [**screenshot**](DefaultApi.md#screenshot) | **GET** /screenshot.jsp | Get screenshot
-[**service**](DefaultApi.md#service) | **GET** /service.jsp | Generic operation service.
+[**service_get**](DefaultApi.md#service_get) | **GET** /service.jsp | Generic operation service.
+[**service_post**](DefaultApi.md#service_post) | **POST** /service.jsp | Generic operation service.
 [**thumbnail**](DefaultApi.md#thumbnail) | **GET** /thumbnail.jsp | Get package thumbnail
 [**update**](DefaultApi.md#update) | **POST** /update.jsp | Update a package
 
@@ -337,12 +338,12 @@ Name | Type | Description  | Notes
 
 
 
-# **service**
-> String service(cmd, opts)
+# **service_get**
+> String service_get(cmd, opts)
 
 Generic operation service.
 
-Provides endpoint for
+Provides endpoint for executing package manipulation commands.
 
 ### Example
 ```ruby
@@ -362,15 +363,15 @@ cmd = "cmd_example" # String | The command to execute.
 opts = { 
   name: "name_example", # String | The name of the package on which to execute the command.
   group: "group_example", # String | The group of the package on which to execute the command.
-  strict: true # BOOLEAN | Fail on an error
+  strict: true # BOOLEAN | Fail on an error.
 }
 
 begin
   #Generic operation service.
-  result = api_instance.service(cmd, opts)
+  result = api_instance.service_get(cmd, opts)
   p result
 rescue CrxPackageManager::ApiError => e
-  puts "Exception when calling DefaultApi->service: #{e}"
+  puts "Exception when calling DefaultApi->service_get: #{e}"
 end
 ```
 
@@ -381,7 +382,7 @@ Name | Type | Description  | Notes
  **cmd** | **String**| The command to execute. | 
  **name** | **String**| The name of the package on which to execute the command. | [optional] 
  **group** | **String**| The group of the package on which to execute the command. | [optional] 
- **strict** | **BOOLEAN**| Fail on an error | [optional] 
+ **strict** | **BOOLEAN**| Fail on an error. | [optional] 
 
 ### Return type
 
@@ -395,6 +396,69 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream, application/zip, text/plain
+
+
+
+# **service_post**
+> String service_post(file, opts)
+
+Generic operation service.
+
+Provides endpoint for
+
+### Example
+```ruby
+# load the gem
+require 'crx_packmgr_api_client'
+# setup authorization
+CrxPackageManager.configure do |config|
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CrxPackageManager::DefaultApi.new
+
+file = File.new("/path/to/file.txt") # File | Package file to upload
+
+opts = { 
+  name: "name_example", # String | The name of the package on installation.
+  strict: true, # BOOLEAN | Fail on an error.
+  force: true, # BOOLEAN | Force the package upload.
+  install: true # BOOLEAN | Install the package upon upload
+}
+
+begin
+  #Generic operation service.
+  result = api_instance.service_post(file, opts)
+  p result
+rescue CrxPackageManager::ApiError => e
+  puts "Exception when calling DefaultApi->service_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **File**| Package file to upload | 
+ **name** | **String**| The name of the package on installation. | [optional] 
+ **strict** | **BOOLEAN**| Fail on an error. | [optional] 
+ **force** | **BOOLEAN**| Force the package upload. | [optional] 
+ **install** | **BOOLEAN**| Install the package upon upload | [optional] 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: Not defined
 
 
 

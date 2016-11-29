@@ -380,32 +380,32 @@ module CrxPackageManager
     end
 
     # Generic operation service.
-    # Provides endpoint for
+    # Provides endpoint for executing package manipulation commands.
     # @param cmd The command to execute.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :name The name of the package on which to execute the command.
     # @option opts [String] :group The group of the package on which to execute the command.
-    # @option opts [BOOLEAN] :strict Fail on an error
+    # @option opts [BOOLEAN] :strict Fail on an error.
     # @return [String]
-    def service(cmd, opts = {})
-      data, _status_code, _headers = service_with_http_info(cmd, opts)
+    def service_get(cmd, opts = {})
+      data, _status_code, _headers = service_get_with_http_info(cmd, opts)
       return data
     end
 
     # Generic operation service.
-    # Provides endpoint for
+    # Provides endpoint for executing package manipulation commands.
     # @param cmd The command to execute.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :name The name of the package on which to execute the command.
     # @option opts [String] :group The group of the package on which to execute the command.
-    # @option opts [BOOLEAN] :strict Fail on an error
+    # @option opts [BOOLEAN] :strict Fail on an error.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
-    def service_with_http_info(cmd, opts = {})
+    def service_get_with_http_info(cmd, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi.service ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi.service_get ..."
       end
       # verify the required parameter 'cmd' is set
-      fail ArgumentError, "Missing the required parameter 'cmd' when calling DefaultApi.service" if cmd.nil?
+      fail ArgumentError, "Missing the required parameter 'cmd' when calling DefaultApi.service_get" if cmd.nil?
       # verify enum value
       unless ['help', 'ls', 'rm', 'build', 'inst', 'uninst', 'get'].include?(cmd)
         fail ArgumentError, "invalid value for 'cmd', must be one of help, ls, rm, build, inst, uninst, get"
@@ -445,7 +445,77 @@ module CrxPackageManager
         :auth_names => auth_names,
         :return_type => 'String')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#service\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#service_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Generic operation service.
+    # Provides endpoint for
+    # @param file Package file to upload
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :name The name of the package on installation.
+    # @option opts [BOOLEAN] :strict Fail on an error.
+    # @option opts [BOOLEAN] :force Force the package upload.
+    # @option opts [BOOLEAN] :install Install the package upon upload
+    # @return [String]
+    def service_post(file, opts = {})
+      data, _status_code, _headers = service_post_with_http_info(file, opts)
+      return data
+    end
+
+    # Generic operation service.
+    # Provides endpoint for
+    # @param file Package file to upload
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :name The name of the package on installation.
+    # @option opts [BOOLEAN] :strict Fail on an error.
+    # @option opts [BOOLEAN] :force Force the package upload.
+    # @option opts [BOOLEAN] :install Install the package upon upload
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def service_post_with_http_info(file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: DefaultApi.service_post ..."
+      end
+      # verify the required parameter 'file' is set
+      fail ArgumentError, "Missing the required parameter 'file' when calling DefaultApi.service_post" if file.nil?
+      # resource path
+      local_var_path = "/service.jsp".sub('{format}','json')
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = []
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = ['multipart/form-data']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+      form_params["file"] = file
+      form_params["name"] = opts[:'name'] if !opts[:'name'].nil?
+      form_params["strict"] = opts[:'strict'] if !opts[:'strict'].nil?
+      form_params["force"] = opts[:'force'] if !opts[:'force'].nil?
+      form_params["install"] = opts[:'install'] if !opts[:'install'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#service_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
