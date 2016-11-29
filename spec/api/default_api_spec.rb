@@ -43,8 +43,58 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for download
+  # Download a package
+  # Downloads the package at the specified path. Returns a Tempfile object.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :path The path to the package to download.
+  # @return [File]
+  describe 'download test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for groups
+  # List package groups
+  # Returns a list of all package groups available.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :compress_version Compress versions; count all versions of the same packages as a single entry.
+  # @option opts [BOOLEAN] :include_all Return a total count of all packages. Default to false.
+  # @option opts [BOOLEAN] :include_root Include the root package. Defaults to false.
+  # @option opts [BOOLEAN] :include_my_packages Include the &#39;my_packages&#39; group. Only applicable if the group has no packages. Default to false.
+  # @option opts [BOOLEAN] :only_top_level Only list top-level groups, ie. do not list all nested groups.
+  # @return [GroupList]
+  describe 'groups test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for init
+  # Metadata
+  # Display metadata about this package manager.
+  # @param [Hash] opts the optional parameters
+  # @return [InitData]
+  describe 'init test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for installstatus
+  # Package Installation Status
+  # Returns a status of the installation of OSGi packages.
+  # @param [Hash] opts the optional parameters
+  # @return [InstallStatus]
+  describe 'installstatus test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list
-  # List all available packages.
+  # List packages
   # Returns a list of all available packages defined.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :q Term to search within package names.
@@ -52,6 +102,72 @@ describe 'DefaultApi' do
   # @option opts [String] :path The path to a specific package definition.
   # @return [PackageList]
   describe 'list test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for screenshot
+  # Get screenshot
+  # Returns the screenshot at the specified path.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :path The path to the screenshot.
+  # @return [File]
+  describe 'screenshot test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for service
+  # Generic operation service.
+  # Provides endpoint for
+  # @param cmd The command to execute.
+  # @param [Hash] opts the optional parameters
+  # @return [ServiceResponse]
+  describe 'service test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for thumbnail
+  # Get package thumbnail
+  # Returns the package&#39;s thumbnail image.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :path The path to the package.
+  # @return [File]
+  describe 'thumbnail test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update
+  # Update a package
+  # Updates a package definition. Returns an UpdateStatus definition, but must be manually parsed due to MIME type incompatibilities. Note that if the name, group or version changes, this changes the path to the package for the next update or listing.
+  # @param path The path to the package which needs updating.
+  # @param package_name The package&#39;s name.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :group_name The package&#39;s group.
+  # @option opts [String] :version The version for the package.
+  # @option opts [String] :description The description for the package.
+  # @option opts [File] :thumbnail The thumbnail for the package.
+  # @option opts [String] :filter The filters for the package. The structure is specified in FilterData definition.
+  # @option opts [String] :tested_with Product name and version this package is targeted for or is compatible with. eg: CQ 5.3
+  # @option opts [String] :fixed_bugs List of fixed bugs or issues.
+  # @option opts [Array<String>] :dependencies Packages on which this one depends.
+  # @option opts [Array<String>] :replaces List of packages this one replaces.
+  # @option opts [String] :provider_name Name of the provider. eg: Adobe Systems Incorporated
+  # @option opts [String] :provider_url URL of the provider. eg: http://www.adobe.com
+  # @option opts [String] :provider_link Package specific link to a provider page. eg: http://www.adobe.com/mypackage.html
+  # @option opts [BOOLEAN] :requires_root Specifies if this package requires root to install.
+  # @option opts [BOOLEAN] :requires_restart Specifies if this package requires a restart upon installation.
+  # @option opts [String] :ac_handling How to handle ACL rules when installing the package.
+  # @option opts [File] :screenshot Screen shot images for this package
+  # @option opts [String] :screenshot_config Configuration details for existing screenshots. The structure is specified in ScreenshotConfig definition.
+  # @return [String]
+  describe 'update test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
