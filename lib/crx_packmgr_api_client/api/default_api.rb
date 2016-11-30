@@ -454,7 +454,7 @@ module CrxPackageManager
     # Provides endpoint for
     # @param file Package file to upload
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :name The name of the package on installation.
+    # @option opts [String] :name The hint for the package&#39;s name if the definiton doesn&#39;t have one.
     # @option opts [BOOLEAN] :strict Fail on an error.
     # @option opts [BOOLEAN] :force Force the package upload.
     # @option opts [BOOLEAN] :install Install the package upon upload
@@ -468,7 +468,7 @@ module CrxPackageManager
     # Provides endpoint for
     # @param file Package file to upload
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :name The name of the package on installation.
+    # @option opts [String] :name The hint for the package&#39;s name if the definiton doesn&#39;t have one.
     # @option opts [BOOLEAN] :strict Fail on an error.
     # @option opts [BOOLEAN] :force Force the package upload.
     # @option opts [BOOLEAN] :install Install the package upon upload

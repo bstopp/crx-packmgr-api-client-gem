@@ -7,7 +7,7 @@
 # Usage example: /bin/sh ./git_push.sh wing328 swagger-petstore-perl "minor update"
 
 git_user_id="bstopp"
-git_repo_id="crx_packmgr_api_client"
+git_repo_id="crx-packmgr-api-client-gem"
 release_note=$1
 
 

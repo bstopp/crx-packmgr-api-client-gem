@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Swagger-Codegen"]
   s.email       = ["bryan.stopp@gmail.com"]
-  s.homepage    = "https://github.com/swagger-api/swagger-codegen"
+  s.homepage    = "https://github.com/bstopp/crx-packmgr-api-client-gem"
   s.summary     = "CRX Package Manager API Ruby Gem"
   s.description = "API for interacting with the CRX Package Manager in AEM."
   s.license     = "Apache 2.0"

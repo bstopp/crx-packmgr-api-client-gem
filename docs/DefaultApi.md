@@ -422,7 +422,7 @@ api_instance = CrxPackageManager::DefaultApi.new
 file = File.new("/path/to/file.txt") # File | Package file to upload
 
 opts = { 
-  name: "name_example", # String | The name of the package on installation.
+  name: "name_example", # String | The hint for the package's name if the definiton doesn't have one.
   strict: true, # BOOLEAN | Fail on an error.
   force: true, # BOOLEAN | Force the package upload.
   install: true # BOOLEAN | Install the package upon upload
@@ -442,7 +442,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **File**| Package file to upload | 
- **name** | **String**| The name of the package on installation. | [optional] 
+ **name** | **String**| The hint for the package&#39;s name if the definiton doesn&#39;t have one. | [optional] 
  **strict** | **BOOLEAN**| Fail on an error. | [optional] 
  **force** | **BOOLEAN**| Force the package upload. | [optional] 
  **install** | **BOOLEAN**| Install the package upon upload | [optional] 
