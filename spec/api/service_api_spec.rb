@@ -14,8 +14,14 @@ describe 'DefaultApi#service' do
     data
   end
 
+  let(:service_resp1) do
+    file = File.new(File.join(File.dirname(__FILE__), '..', 'files', 'service_response1.txt'))
+    data = file.read
+    data
+  end
+
   let(:ul) do
-    file = File.new(File.join(File.dirname(__FILE__), '..', 'files', 'test.zip'))
+    file = File.new(File.join(File.dirname(__FILE__), '..', 'files', 'test-1.0.0.zip'))
     file
   end
 
@@ -39,7 +45,7 @@ describe 'DefaultApi#service' do
       ).to_return(status: 200, body: service_resp, headers: { 'Content-Type' => 'text/plain' })
 
       xml = @instance.service_get('help')
-      parsed = XmlSimple.xml_in(xml, { ForceArray: false, KeyToSymbol: true, AttrToSymbol: true } )
+      parsed = XmlSimple.xml_in(xml, { ForceArray: %r(param), KeyToSymbol: true, AttrToSymbol: true } )
       sr = CrxPackageManager::ServiceResponse.new
       sr = sr.build_from_hash(parsed)
       expect(sr.version).to eq('1.4.1')
@@ -49,7 +55,7 @@ describe 'DefaultApi#service' do
       req = sr.request
       params = req.param
       expect(params).to be_a(Array)
-      expect(params.length).to eq(2)
+      expect(params.length).to eq(1)
       expect(params[0].name).to eq('cmd')
       response = sr.response
       expect(response.status[:code].to_i).to eq(200)
@@ -62,7 +68,7 @@ describe 'DefaultApi#service' do
       get_stub = stub_request(
           :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/service.jsp"
       ).with(query: { cmd: 'ls' }
-      ).to_return(status: 200, body: service_resp, headers: { 'Content-Type' => 'text/plain' })
+      ).to_return(status: 200, body: service_resp1, headers: { 'Content-Type' => 'text/plain' })
 
       xml = @instance.service_get('ls')
       parsed = XmlSimple.xml_in(xml, { ForceArray: false, KeyToSymbol: true, AttrToSymbol: true } )
@@ -88,7 +94,7 @@ describe 'DefaultApi#service' do
       get_stub = stub_request(
           :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/service.jsp"
       ).with(query: { cmd: 'rm' }
-      ).to_return(status: 200, body: service_resp, headers: { 'Content-Type' => 'text/plain' })
+      ).to_return(status: 200, body: service_resp1, headers: { 'Content-Type' => 'text/plain' })
 
       xml = @instance.service_get('rm')
       parsed = XmlSimple.xml_in(xml, { ForceArray: false, KeyToSymbol: true, AttrToSymbol: true } )
@@ -114,7 +120,7 @@ describe 'DefaultApi#service' do
       get_stub = stub_request(
           :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/service.jsp"
       ).with(query: { cmd: 'build' }
-      ).to_return(status: 200, body: service_resp, headers: { 'Content-Type' => 'text/plain' })
+      ).to_return(status: 200, body: service_resp1, headers: { 'Content-Type' => 'text/plain' })
 
       xml = @instance.service_get('build')
       parsed = XmlSimple.xml_in(xml, { ForceArray: false, KeyToSymbol: true, AttrToSymbol: true } )
@@ -140,7 +146,7 @@ describe 'DefaultApi#service' do
       get_stub = stub_request(
           :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/service.jsp"
       ).with(query: { cmd: 'inst' }
-      ).to_return(status: 200, body: service_resp, headers: { 'Content-Type' => 'text/plain' })
+      ).to_return(status: 200, body: service_resp1, headers: { 'Content-Type' => 'text/plain' })
 
       xml = @instance.service_get('inst')
       parsed = XmlSimple.xml_in(xml, { ForceArray: false, KeyToSymbol: true, AttrToSymbol: true } )
@@ -166,7 +172,7 @@ describe 'DefaultApi#service' do
       get_stub = stub_request(
           :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/service.jsp"
       ).with(query: { cmd: 'uninst' }
-      ).to_return(status: 200, body: service_resp, headers: { 'Content-Type' => 'text/plain' })
+      ).to_return(status: 200, body: service_resp1, headers: { 'Content-Type' => 'text/plain' })
 
       xml = @instance.service_get('uninst')
       parsed = XmlSimple.xml_in(xml, { ForceArray: false, KeyToSymbol: true, AttrToSymbol: true } )
@@ -192,7 +198,7 @@ describe 'DefaultApi#service' do
       get_stub = stub_request(
           :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/service.jsp"
       ).with(query: { cmd: 'get' }
-      ).to_return(status: 200, body: service_resp, headers: { 'Content-Type' => 'text/plain' })
+      ).to_return(status: 200, body: service_resp1, headers: { 'Content-Type' => 'text/plain' })
 
       xml = @instance.service_get('get')
       parsed = XmlSimple.xml_in(xml, { ForceArray: false, KeyToSymbol: true, AttrToSymbol: true } )
@@ -224,7 +230,7 @@ describe 'DefaultApi#service' do
       get_stub = stub_request(
           :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/service.jsp"
       ).with(query: { cmd: 'help' }
-      ).to_return(status: 200, body: service_resp, headers: { 'Content-Type' => 'text/plain' })
+      ).to_return(status: 200, body: service_resp1, headers: { 'Content-Type' => 'text/plain' })
 
       xml = @instance.service_get('help')
       parsed = XmlSimple.xml_in(xml, { ForceArray: false, KeyToSymbol: true, AttrToSymbol: true } )
@@ -278,7 +284,7 @@ describe 'DefaultApi#service' do
       get_stub = stub_request(
           :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/service.jsp"
       ).with(query: { cmd: 'help' }
-      ).to_return(status: 200, body: service_resp, headers: { 'Content-Type' => 'text/plain' })
+      ).to_return(status: 200, body: service_resp1, headers: { 'Content-Type' => 'text/plain' })
 
       xml = @instance.service_get('help', other_param: 'value')
       parsed = XmlSimple.xml_in(xml, { ForceArray: false, KeyToSymbol: true, AttrToSymbol: true } )

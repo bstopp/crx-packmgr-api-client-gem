@@ -14,7 +14,7 @@ describe 'DefaultApi#screenshot' do
   end
 
   let(:screenshot) do
-    file = File.new(File.join(File.dirname(__FILE__), '..', 'files', 'adobe-logo.jpg'))
+    file = File.new(File.join(File.dirname(__FILE__), '..', 'files', 'thumbnail.png'))
     data = file.read
     data
   end

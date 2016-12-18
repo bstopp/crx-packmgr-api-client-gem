@@ -13,13 +13,13 @@ describe 'DefaultApi#download' do
   end
 
   let(:dl) do
-    file = File.new(File.join(File.dirname(__FILE__), '..', 'files', 'test.zip'))
+    file = File.new(File.join(File.dirname(__FILE__), '..', 'files', 'test-1.0.0.zip'))
     file
   end
 
   it 'should work' do
     WebMock.reset!
-    path = '/etc/packages/my_packages/test.zip'
+    path = '/etc/packages/my_packages/test-1.0.0.zip'
     cfg = @instance.api_client.config
     get_stub = stub_request(
       :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/download.jsp"
@@ -30,14 +30,12 @@ describe 'DefaultApi#download' do
     data = @instance.download(path: path)
     expect(data).to be_a(Tempfile)
     expect(get_stub).to have_been_requested
-    data.open
-    expect(data.read).to match(/foo/)
     data.delete
   end
 
   it 'should support config changes' do
     WebMock.reset!
-    path = '/etc/packages/my_packages/test.zip'
+    path = '/etc/packages/my_packages/test-1.0.0.zip'
     @instance.api_client.config.configure do |c|
       c.scheme = 'https'
       c.host = 'notlocalhost'
@@ -54,15 +52,13 @@ describe 'DefaultApi#download' do
     data = @instance.download(path: path)
     expect(data).to be_a(Tempfile)
     expect(get_stub).to have_been_requested
-    data.open
-    expect(data.read).to match(/foo/)
     data.delete
 
   end
 
   it 'should support failures' do
     WebMock.reset!
-    path = '/etc/packages/my_packages/test.zip'
+    path = '/etc/packages/my_packages/test-1.0.0.zip'
     cfg = @instance.api_client.config
     get_stub = stub_request(
       :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/download.jsp"
@@ -82,7 +78,7 @@ describe 'DefaultApi#download' do
 
   it 'should ignore other params' do
     WebMock.reset!
-    path = '/etc/packages/my_packages/test.zip'
+    path = '/etc/packages/my_packages/test-1.0.0.zip'
     cfg = @instance.api_client.config
     get_stub = stub_request(
       :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/download.jsp"
@@ -93,8 +89,6 @@ describe 'DefaultApi#download' do
     data = @instance.download(path: path, other_param: 'value')
     expect(data).to be_a(Tempfile)
     expect(get_stub).to have_been_requested
-    data.open
-    expect(data.read).to match(/foo/)
     data.delete
   end
 
