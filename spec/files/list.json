@@ -1,0 +1,533 @@
+{
+  "results": [
+    {
+      "pid": "my_packages:test:1",
+      "path": "/etc/packages/my_packages/test-1.zip",
+      "name": "test",
+      "downloadName": "test-1.zip",
+      "group": "my_packages",
+      "groupTitle": "my_packages",
+      "version": "1",
+      "description": "",
+      "thumbnail": "/crx/packmgr/thumbnail.jsp?_charset_=utf-8&path=%2fetc%2fpackages%2fmy_packages%2ftest-1.zip&ck=1481311149218",
+      "buildCount": 3,
+      "lastModified": 1481258445010,
+      "lastModifiedBy": "admin",
+      "created": 1480351552932,
+      "createdBy": "admin",
+      "lastWrapped": 1480351552932,
+      "lastWrappedBy": "admin",
+      "lastUnwrapped": 1480351552932,
+      "lastUnwrappedBy": "admin",
+      "size": 190314,
+      "hasSnapshot": false,
+      "needsRewrap": false,
+      "builtWith": "Adobe Experience Manager-6.2.0",
+      "testedWith": "",
+      "fixedBugs": "",
+      "requiresRoot": false,
+      "requiresRestart": false,
+      "acHandling": "merge_preserve",
+      "dependencies": [],
+      "resolved": true,
+      "providerName": "",
+      "providerUrl": "",
+      "providerLink": "",
+      "filter": [
+        {
+          "root": "/content/dam/site",
+          "rules": [
+            {
+              "modifier": "exclude",
+              "pattern": ".*/renditions/.*"
+            }
+          ]
+        },
+        {
+          "root": "/content/site/en/errors",
+          "rules": []
+        }
+      ],
+      "screenshots": [
+        "/etc/packages/my_packages/test-1.zip/jcr:content/vlt:definition/screenshots/feeb863b-2126-45f8-8f75-f0b345c4736c"
+      ]
+    },
+    {
+      "pid": "adobe/consulting:acs-aem-commons-content:3.3.2",
+      "path": "/etc/packages/adobe/consulting/acs-aem-commons-content-3.3.2.zip",
+      "name": "acs-aem-commons-content",
+      "downloadName": "acs-aem-commons-content-3.3.2.zip",
+      "group": "adobe/consulting",
+      "groupTitle": "Adobe",
+      "version": "3.3.2",
+      "description": "Maven Multimodule project for ACS AEM Commons.",
+      "thumbnail": "/crx/packmgr/thumbnail.jsp?_charset_=utf-8&path=%2fetc%2fpackages%2fadobe%2fconsulting%2facs-aem-commons-content-3.3.2.zip&ck=1480140623429",
+      "buildCount": 0,
+      "created": 1476362504349,
+      "createdBy": "jedelson",
+      "lastUnwrapped": 1480140623432,
+      "size": 10772970,
+      "hasSnapshot": false,
+      "needsRewrap": false,
+      "builtWith": "CQ-5.3",
+      "requiresRoot": false,
+      "requiresRestart": false,
+      "acHandling": "",
+      "dependencies": [],
+      "resolved": true,
+      "filter": [
+        {
+          "root": "/apps/acs-commons",
+          "rules": [
+            {
+              "modifier": "exclude",
+              "pattern": "/apps/acs-commons/components/utilities/designer/clientlibsmanager/clientlibs/less/generated"
+            },
+            {
+              "modifier": "exclude",
+              "pattern": "/apps/acs-commons/components/content/column-control/clientlib/css/generated"
+            },
+            {
+              "modifier": "exclude",
+              "pattern": "/apps/acs-commons/widgets/source/css/generated"
+            },
+            {
+              "modifier": "exclude",
+              "pattern": "/apps/acs-commons/components/utilities/page/clientlibs/css/generated"
+            },
+            {
+              "modifier": "exclude",
+              "pattern": "/apps/acs-commons/components/utilities/oak-index-manager/clientlibs/css/generated"
+            },
+            {
+              "modifier": "exclude",
+              "pattern": "/apps/acs-commons/components/utilities/bulk-workflow-manager/clientlibs/css/generated"
+            }
+          ]
+        },
+        {
+          "root": "/etc/clientlibs/acs-commons",
+          "rules": []
+        },
+        {
+          "root": "/etc/designs/acs-commons",
+          "rules": []
+        },
+        {
+          "root": "/etc/dam/video/mp3hq",
+          "rules": []
+        },
+        {
+          "root": "/etc/dam/video/ogghq",
+          "rules": []
+        },
+        {
+          "root": "/etc/dam/video/flacmono",
+          "rules": []
+        },
+        {
+          "root": "/etc/cloudservices/typekit",
+          "rules": [
+            {
+              "modifier": "include",
+              "pattern": "/etc/cloudservices/typekit/jcr:content"
+            }
+          ]
+        },
+        {
+          "root": "/etc/cloudservices/dtm",
+          "rules": [
+            {
+              "modifier": "include",
+              "pattern": "/etc/cloudservices/dtm/jcr:content"
+            }
+          ]
+        },
+        {
+          "root": "/etc/cloudservices/sharethis",
+          "rules": [
+            {
+              "modifier": "include",
+              "pattern": "/etc/cloudservices/sharethis/jcr:content"
+            }
+          ]
+        },
+        {
+          "root": "/etc/acs-commons",
+          "rules": [
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/oak-index-manager(.*)?"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/bulk-workflow-manager"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/bulk-workflow-manager/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/jcr-compare(.*)?"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/twitter-rate-limit-checker(.*)?"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/version-replicator(.*)?"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/version-compare(.*)?"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/dispatcher-flush"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/dispatcher-flush/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/sharethis-services"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/sharethis-services/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/sharethis-services/jcr:content/list"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/sharethis-services/jcr:content/list/default_\\d+"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/font-awesome-icons"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/font-awesome-icons/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/font-awesome-icons/jcr:content/list"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/font-awesome-icons/jcr:content/list/item_\\d+"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/notifications"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/notifications/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/packagers"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/packagers/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/workflow-remover(.*)"
+            }
+          ]
+        },
+        {
+          "root": "/apps/cq/core/content/nav/tools/acs-commons",
+          "rules": []
+        }
+      ],
+      "screenshots": []
+    },
+    {
+      "pid": "adobe/consulting:acs-aem-commons-content:3.4.0",
+      "path": "/etc/packages/adobe/consulting/acs-aem-commons-content-3.4.0.zip",
+      "name": "acs-aem-commons-content",
+      "downloadName": "acs-aem-commons-content-3.4.0.zip",
+      "group": "adobe/consulting",
+      "groupTitle": "Adobe",
+      "version": "3.4.0",
+      "description": "Maven Multimodule project for ACS AEM Commons.",
+      "thumbnail": "/crx/packmgr/thumbnail.jsp?_charset_=utf-8&path=%2fetc%2fpackages%2fadobe%2fconsulting%2facs-aem-commons-content-3.4.0.zip&ck=1480391645114",
+      "buildCount": 0,
+      "created": 1477925631930,
+      "createdBy": "jedelson",
+      "lastUnpacked": 1480391645680,
+      "lastUnpackedBy": "admin",
+      "lastUnwrapped": 1480391297042,
+      "size": 10828674,
+      "hasSnapshot": true,
+      "needsRewrap": false,
+      "builtWith": "CQ-5.3",
+      "requiresRoot": false,
+      "requiresRestart": false,
+      "acHandling": "",
+      "dependencies": [],
+      "resolved": true,
+      "filter": [
+        {
+          "root": "/apps/acs-commons",
+          "rules": [
+            {
+              "modifier": "exclude",
+              "pattern": "/apps/acs-commons/components/utilities/designer/clientlibsmanager/clientlibs/less/generated"
+            },
+            {
+              "modifier": "exclude",
+              "pattern": "/apps/acs-commons/components/content/column-control/clientlib/css/generated"
+            },
+            {
+              "modifier": "exclude",
+              "pattern": "/apps/acs-commons/widgets/source/css/generated"
+            },
+            {
+              "modifier": "exclude",
+              "pattern": "/apps/acs-commons/components/utilities/page/clientlibs/css/generated"
+            },
+            {
+              "modifier": "exclude",
+              "pattern": "/apps/acs-commons/components/utilities/oak-index-manager/clientlibs/css/generated"
+            },
+            {
+              "modifier": "exclude",
+              "pattern": "/apps/acs-commons/components/utilities/bulk-workflow-manager/clientlibs/css/generated"
+            }
+          ]
+        },
+        {
+          "root": "/etc/clientlibs/acs-commons",
+          "rules": []
+        },
+        {
+          "root": "/etc/designs/acs-commons",
+          "rules": []
+        },
+        {
+          "root": "/etc/dam/video/mp3hq",
+          "rules": []
+        },
+        {
+          "root": "/etc/dam/video/ogghq",
+          "rules": []
+        },
+        {
+          "root": "/etc/dam/video/flacmono",
+          "rules": []
+        },
+        {
+          "root": "/etc/cloudservices/typekit",
+          "rules": [
+            {
+              "modifier": "include",
+              "pattern": "/etc/cloudservices/typekit/jcr:content"
+            }
+          ]
+        },
+        {
+          "root": "/etc/cloudservices/dtm",
+          "rules": [
+            {
+              "modifier": "include",
+              "pattern": "/etc/cloudservices/dtm/jcr:content"
+            }
+          ]
+        },
+        {
+          "root": "/etc/cloudservices/sharethis",
+          "rules": [
+            {
+              "modifier": "include",
+              "pattern": "/etc/cloudservices/sharethis/jcr:content"
+            }
+          ]
+        },
+        {
+          "root": "/etc/acs-commons",
+          "rules": [
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/oak-index-manager(.*)?"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/bulk-workflow-manager"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/bulk-workflow-manager/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/jcr-compare(.*)?"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/twitter-rate-limit-checker(.*)?"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/version-replicator(.*)?"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/version-compare(.*)?"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/dispatcher-flush"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/dispatcher-flush/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/sharethis-services"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/sharethis-services/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/sharethis-services/jcr:content/list"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/sharethis-services/jcr:content/list/default_\\d+"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/font-awesome-icons"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/font-awesome-icons/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/font-awesome-icons/jcr:content/list"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/lists/font-awesome-icons/jcr:content/list/item_\\d+"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/notifications"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/notifications/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/packagers"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/packagers/jcr:content"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/workflow-remover(.*)"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/exporters"
+            },
+            {
+              "modifier": "include",
+              "pattern": "/etc/acs-commons/exporters/jcr:content"
+            }
+          ]
+        },
+        {
+          "root": "/apps/cq/core/content/nav/tools/acs-commons",
+          "rules": []
+        }
+      ],
+      "screenshots": []
+    },
+    {
+      "pid": "adobe/consulting:acs-aem-tools-content:0.0.28",
+      "path": "/etc/packages/adobe/consulting/acs-aem-tools-content-0.0.28.zip",
+      "name": "acs-aem-tools-content",
+      "downloadName": "acs-aem-tools-content-0.0.28.zip",
+      "group": "adobe/consulting",
+      "groupTitle": "Adobe",
+      "version": "0.0.28",
+      "description": "Maven Multimodule project for ACS AEM Tools.",
+      "thumbnail": "/crx/packmgr/thumbnail.jsp?_charset_=utf-8&path=%2fetc%2fpackages%2fadobe%2fconsulting%2facs-aem-tools-content-0.0.28.zip&ck=1476141582156",
+      "buildCount": 0,
+      "created": 1469378115415,
+      "createdBy": "dgonzale",
+      "lastUnpacked": 1476141586909,
+      "lastUnpackedBy": "admin",
+      "lastUnwrapped": 1476141582160,
+      "size": 3513863,
+      "hasSnapshot": true,
+      "needsRewrap": false,
+      "builtWith": "CQ-5.3",
+      "requiresRoot": false,
+      "requiresRestart": false,
+      "acHandling": "",
+      "dependencies": [],
+      "resolved": true,
+      "filter": [
+        {
+          "root": "/apps/acs-tools",
+          "rules": [
+            {
+              "modifier": "exclude",
+              "pattern": ".*/clientlibs/css/generated"
+            }
+          ]
+        },
+        {
+          "root": "/etc/acs-tools",
+          "rules": []
+        },
+        {
+          "root": "/etc/clientlibs/acs-tools",
+          "rules": []
+        },
+        {
+          "root": "/apps/cq/core/content/nav/tools/acs-tools",
+          "rules": []
+        }
+      ],
+      "screenshots": []
+    }
+  ],
+  "total": 4
+}

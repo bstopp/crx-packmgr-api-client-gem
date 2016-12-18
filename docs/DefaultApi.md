@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**service_get**](DefaultApi.md#service_get) | **GET** /service.jsp | Generic operation service.
 [**service_post**](DefaultApi.md#service_post) | **POST** /service.jsp | Generic operation service.
 [**thumbnail**](DefaultApi.md#thumbnail) | **GET** /thumbnail.jsp | Get package thumbnail
-[**update**](DefaultApi.md#update) | **POST** /update.jsp | Update a package
 
 
 # **download**
@@ -92,9 +91,9 @@ api_instance = CrxPackageManager::DefaultApi.new
 
 opts = { 
   compress_version: "compress_version_example", # String | Compress versions; count all versions of the same packages as a single entry.
-  include_all: true, # BOOLEAN | Return a total count of all packages. Default to false.
+  include_all: true, # BOOLEAN | Return a total count of all packages. Defaults to false.
   include_root: true, # BOOLEAN | Include the root package. Defaults to false.
-  include_my_packages: true, # BOOLEAN | Include the 'my_packages' group. Only applicable if the group has no packages. Default to false.
+  include_my_packages: true, # BOOLEAN | Include the 'my_packages' group. Only applicable if the group has no packages. Defaults to false.
   only_top_level: true # BOOLEAN | Only list top-level groups, ie. do not list all nested groups.
 }
 
@@ -112,9 +111,9 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **compress_version** | **String**| Compress versions; count all versions of the same packages as a single entry. | [optional] 
- **include_all** | **BOOLEAN**| Return a total count of all packages. Default to false. | [optional] 
+ **include_all** | **BOOLEAN**| Return a total count of all packages. Defaults to false. | [optional] 
  **include_root** | **BOOLEAN**| Include the root package. Defaults to false. | [optional] 
- **include_my_packages** | **BOOLEAN**| Include the &#39;my_packages&#39; group. Only applicable if the group has no packages. Default to false. | [optional] 
+ **include_my_packages** | **BOOLEAN**| Include the &#39;my_packages&#39; group. Only applicable if the group has no packages. Defaults to false. | [optional] 
  **only_top_level** | **BOOLEAN**| Only list top-level groups, ie. do not list all nested groups. | [optional] 
 
 ### Return type
@@ -249,7 +248,7 @@ api_instance = CrxPackageManager::DefaultApi.new
 opts = { 
   q: "q_example", # String | Term to search within package names.
   include_versions: true, # BOOLEAN | Include versions of package in results.
-  path: "path_example" # String | The path to a specific package definition.
+  null: "null_example" # String | The path to a specific package definition.
 }
 
 begin
@@ -267,7 +266,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**| Term to search within package names. | [optional] 
  **include_versions** | **BOOLEAN**| Include versions of package in results. | [optional] 
- **path** | **String**| The path to a specific package definition. | [optional] 
+ **null** | **String**| The path to a specific package definition. | [optional] 
 
 ### Return type
 
@@ -343,7 +342,7 @@ Name | Type | Description  | Notes
 
 Generic operation service.
 
-Provides endpoint for executing package manipulation commands.
+Provides endpoint for executing package manipulation commands. Responses are in the format of the ServiceResponse in the defintions section.
 
 ### Example
 ```ruby
@@ -404,7 +403,7 @@ Name | Type | Description  | Notes
 
 Generic operation service.
 
-Provides endpoint for
+Provides endpoint for executing package manipulation commands. Responses are in the format of the ServiceResponse in the defintions section.
 
 ### Example
 ```ruby
@@ -513,98 +512,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: image/jpg, image/jpeg, image/png
-
-
-
-# **update**
-> String update(path, package_name, opts)
-
-Update a package
-
-Updates a package definition. Returns an UpdateStatus definition, but must be manually parsed due to MIME type incompatibilities. Note that if the name, group or version changes, this changes the path to the package for the next update or listing.
-
-### Example
-```ruby
-# load the gem
-require 'crx_packmgr_api_client'
-# setup authorization
-CrxPackageManager.configure do |config|
-  # Configure HTTP basic authorization: basic
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
-
-api_instance = CrxPackageManager::DefaultApi.new
-
-path = "path_example" # String | The path to the package which needs updating.
-
-package_name = "package_name_example" # String | The package's name.
-
-opts = { 
-  group_name: "group_name_example", # String | The package's group.
-  version: "version_example", # String | The version for the package.
-  description: "description_example", # String | The description for the package.
-  thumbnail: File.new("/path/to/file.txt"), # File | The thumbnail for the package.
-  filter: "filter_example", # String | The filters for the package. The structure is specified in FilterData definition.
-  tested_with: "tested_with_example", # String | Product name and version this package is targeted for or is compatible with. eg: CQ 5.3
-  fixed_bugs: "fixed_bugs_example", # String | List of fixed bugs or issues.
-  dependencies: ["dependencies_example"], # Array<String> | Packages on which this one depends.
-  replaces: ["replaces_example"], # Array<String> | List of packages this one replaces.
-  provider_name: "provider_name_example", # String | Name of the provider. eg: Adobe Systems Incorporated
-  provider_url: "provider_url_example", # String | URL of the provider. eg: http://www.adobe.com
-  provider_link: "provider_link_example", # String | Package specific link to a provider page. eg: http://www.adobe.com/mypackage.html
-  requires_root: true, # BOOLEAN | Specifies if this package requires root to install.
-  requires_restart: true, # BOOLEAN | Specifies if this package requires a restart upon installation.
-  ac_handling: "ac_handling_example", # String | How to handle ACL rules when installing the package.
-  screenshot: File.new("/path/to/file.txt"), # File | Screen shot images for this package
-  screenshot_config: "screenshot_config_example" # String | Configuration details for existing screenshots. The structure is specified in ScreenshotConfig definition.
-}
-
-begin
-  #Update a package
-  result = api_instance.update(path, package_name, opts)
-  p result
-rescue CrxPackageManager::ApiError => e
-  puts "Exception when calling DefaultApi->update: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **String**| The path to the package which needs updating. | 
- **package_name** | **String**| The package&#39;s name. | 
- **group_name** | **String**| The package&#39;s group. | [optional] 
- **version** | **String**| The version for the package. | [optional] 
- **description** | **String**| The description for the package. | [optional] 
- **thumbnail** | **File**| The thumbnail for the package. | [optional] 
- **filter** | **String**| The filters for the package. The structure is specified in FilterData definition. | [optional] 
- **tested_with** | **String**| Product name and version this package is targeted for or is compatible with. eg: CQ 5.3 | [optional] 
- **fixed_bugs** | **String**| List of fixed bugs or issues. | [optional] 
- **dependencies** | [**Array&lt;String&gt;**](String.md)| Packages on which this one depends. | [optional] 
- **replaces** | [**Array&lt;String&gt;**](String.md)| List of packages this one replaces. | [optional] 
- **provider_name** | **String**| Name of the provider. eg: Adobe Systems Incorporated | [optional] 
- **provider_url** | **String**| URL of the provider. eg: http://www.adobe.com | [optional] 
- **provider_link** | **String**| Package specific link to a provider page. eg: http://www.adobe.com/mypackage.html | [optional] 
- **requires_root** | **BOOLEAN**| Specifies if this package requires root to install. | [optional] 
- **requires_restart** | **BOOLEAN**| Specifies if this package requires a restart upon installation. | [optional] 
- **ac_handling** | **String**| How to handle ACL rules when installing the package. | [optional] 
- **screenshot** | **File**| Screen shot images for this package | [optional] 
- **screenshot_config** | **String**| Configuration details for existing screenshots. The structure is specified in ScreenshotConfig definition. | [optional] 
-
-### Return type
-
-**String**
-
-### Authorization
-
-[basic](../README.md#basic)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: text/html
 
 
 

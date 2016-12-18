@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **ac_handling** | **String** |  | [optional] 
 **dependencies** | **Array&lt;String&gt;** |  | [optional] 
 **resolved** | **BOOLEAN** |  | [optional] 
-**filter** | [**Array&lt;PackageFilter&gt;**](PackageFilter.md) |  | [optional] 
+**filter** | [**Array&lt;Filter&gt;**](Filter.md) |  | [optional] 
 **screenshots** | **Array&lt;String&gt;** |  | [optional] 
 
 

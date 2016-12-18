@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**finished** | **String** |  | [optional] 
-**item_count** | **String** |  | [optional] 
+**finished** | **BOOLEAN** |  | [optional] 
+**item_count** | **Integer** |  | [optional] 
 
 
