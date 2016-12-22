@@ -266,7 +266,7 @@ module CrxPackageManager
     # @param [Hash] opts the optional parameters
     # @option opts [String] :q Term to search within package names.
     # @option opts [BOOLEAN] :include_versions Include versions of package in results.
-    # @option opts [String] :null The path to a specific package definition.
+    # @option opts [String] :path The path to a specific package definition.
     # @return [PackageList]
     def list(opts = {})
       data, _status_code, _headers = list_with_http_info(opts)
@@ -278,7 +278,7 @@ module CrxPackageManager
     # @param [Hash] opts the optional parameters
     # @option opts [String] :q Term to search within package names.
     # @option opts [BOOLEAN] :include_versions Include versions of package in results.
-    # @option opts [String] :null The path to a specific package definition.
+    # @option opts [String] :path The path to a specific package definition.
     # @return [Array<(PackageList, Fixnum, Hash)>] PackageList data, response status code and response headers
     def list_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -291,7 +291,7 @@ module CrxPackageManager
       query_params = {}
       query_params[:'q'] = opts[:'q'] if !opts[:'q'].nil?
       query_params[:'includeVersions'] = opts[:'include_versions'] if !opts[:'include_versions'].nil?
-      query_params[:'null'] = opts[:'null'] if !opts[:'null'].nil?
+      query_params[:'path'] = opts[:'path'] if !opts[:'path'].nil?
 
       # header parameters
       header_params = {}

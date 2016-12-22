@@ -248,7 +248,7 @@ api_instance = CrxPackageManager::DefaultApi.new
 opts = { 
   q: "q_example", # String | Term to search within package names.
   include_versions: true, # BOOLEAN | Include versions of package in results.
-  null: "null_example" # String | The path to a specific package definition.
+  path: "path_example" # String | The path to a specific package definition.
 }
 
 begin
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**| Term to search within package names. | [optional] 
  **include_versions** | **BOOLEAN**| Include versions of package in results. | [optional] 
- **null** | **String**| The path to a specific package definition. | [optional] 
+ **path** | **String**| The path to a specific package definition. | [optional] 
 
 ### Return type
 
