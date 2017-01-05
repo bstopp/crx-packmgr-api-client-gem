@@ -224,7 +224,6 @@ describe 'DefaultApi#service' do
         c.scheme = 'https'
         c.host = 'notlocalhost'
         c.base_path = '/contextroot/crx/packgr'
-        c.debugging = true
       end
       cfg = @instance.api_client.config
       get_stub = stub_request(
@@ -328,7 +327,6 @@ describe 'DefaultApi#service' do
         c.scheme = 'https'
         c.host = 'notlocalhost'
         c.base_path = '/contextroot/crx/packgr'
-        c.debugging = true
       end
       cfg = @instance.api_client.config
       post_stub = stub_request(

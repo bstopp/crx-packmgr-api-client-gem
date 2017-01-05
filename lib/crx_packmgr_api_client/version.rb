@@ -22,5 +22,5 @@ limitations under the License.
 =end
 
 module CrxPackageManager
-  VERSION = "1.1.0"
+  VERSION = "1.1.1"
 end
