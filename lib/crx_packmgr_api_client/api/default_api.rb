@@ -380,6 +380,80 @@ module CrxPackageManager
     end
 
     # Generic operation service.
+    # Provides a different API for executing package manipulation commands. Operates on a specific version of the package.
+    # @param cmd The command to execute.
+    # @param name The name of the package on which to execute the command.
+    # @param group The group of the package on which to execute the command.
+    # @param version The version of the package on which to execute the command.
+    # @param [Hash] opts the optional parameters
+    # @return [ServiceExecResponse]
+    def service_exec(cmd, name, group, version, opts = {})
+      data, _status_code, _headers = service_exec_with_http_info(cmd, name, group, version, opts)
+      return data
+    end
+
+    # Generic operation service.
+    # Provides a different API for executing package manipulation commands. Operates on a specific version of the package.
+    # @param cmd The command to execute.
+    # @param name The name of the package on which to execute the command.
+    # @param group The group of the package on which to execute the command.
+    # @param version The version of the package on which to execute the command.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ServiceExecResponse, Fixnum, Hash)>] ServiceExecResponse data, response status code and response headers
+    def service_exec_with_http_info(cmd, name, group, version, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: DefaultApi.service_exec ..."
+      end
+      # verify the required parameter 'cmd' is set
+      fail ArgumentError, "Missing the required parameter 'cmd' when calling DefaultApi.service_exec" if cmd.nil?
+      # verify enum value
+      unless ['build', 'install', 'delete', 'uninstall', 'dryrun', 'replicate'].include?(cmd)
+        fail ArgumentError, "invalid value for 'cmd', must be one of build, install, delete, uninstall, dryrun, replicate"
+      end
+      # verify the required parameter 'name' is set
+      fail ArgumentError, "Missing the required parameter 'name' when calling DefaultApi.service_exec" if name.nil?
+      # verify the required parameter 'group' is set
+      fail ArgumentError, "Missing the required parameter 'group' when calling DefaultApi.service_exec" if group.nil?
+      # verify the required parameter 'version' is set
+      fail ArgumentError, "Missing the required parameter 'version' when calling DefaultApi.service_exec" if version.nil?
+      # resource path
+      local_var_path = "/service/exec.json/etc/packages/{group}/{name}-{version}.zip".sub('{format}','json').sub('{' + 'name' + '}', name.to_s).sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'cmd'] = cmd
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = ['application/json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = []
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ServiceExecResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#service_exec\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Generic operation service.
     # Provides endpoint for executing package manipulation commands. Responses are in the format of the ServiceResponse in the defintions section.
     # @param cmd The command to execute.
     # @param [Hash] opts the optional parameters

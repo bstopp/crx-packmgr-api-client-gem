@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**installstatus**](DefaultApi.md#installstatus) | **GET** /installstatus.jsp | Package Installation Status
 [**list**](DefaultApi.md#list) | **GET** /list.jsp | List packages
 [**screenshot**](DefaultApi.md#screenshot) | **GET** /screenshot.jsp | Get screenshot
+[**service_exec**](DefaultApi.md#service_exec) | **POST** /service/exec.json/etc/packages/{group}/{name}-{version}.zip | Generic operation service.
 [**service_get**](DefaultApi.md#service_get) | **GET** /service.jsp | Generic operation service.
 [**service_post**](DefaultApi.md#service_post) | **POST** /service.jsp | Generic operation service.
 [**thumbnail**](DefaultApi.md#thumbnail) | **GET** /thumbnail.jsp | Get package thumbnail
@@ -334,6 +335,68 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: image/jpg, image/jpeg, image/png
+
+
+
+# **service_exec**
+> ServiceExecResponse service_exec(cmd, name, group, version)
+
+Generic operation service.
+
+Provides a different API for executing package manipulation commands. Operates on a specific version of the package.
+
+### Example
+```ruby
+# load the gem
+require 'crx_packmgr_api_client'
+# setup authorization
+CrxPackageManager.configure do |config|
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CrxPackageManager::DefaultApi.new
+
+cmd = "cmd_example" # String | The command to execute.
+
+name = "name_example" # String | The name of the package on which to execute the command.
+
+group = "group_example" # String | The group of the package on which to execute the command.
+
+version = "version_example" # String | The version of the package on which to execute the command.
+
+
+begin
+  #Generic operation service.
+  result = api_instance.service_exec(cmd, name, group, version)
+  p result
+rescue CrxPackageManager::ApiError => e
+  puts "Exception when calling DefaultApi->service_exec: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cmd** | **String**| The command to execute. | 
+ **name** | **String**| The name of the package on which to execute the command. | 
+ **group** | **String**| The group of the package on which to execute the command. | 
+ **version** | **String**| The version of the package on which to execute the command. | 
+
+### Return type
+
+[**ServiceExecResponse**](ServiceExecResponse.md)
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 
