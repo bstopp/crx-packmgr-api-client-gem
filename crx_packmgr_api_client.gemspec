@@ -54,6 +54,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'simplecov', '~>0'
   s.add_development_dependency 'codeclimate-test-reporter', '~>1.0'
 
+  s.add_development_dependency 'gem-release', '~>2.0'
+
   s.files         = `find *`.split("\n").uniq.sort.select{|f| !f.empty? && !f.end_with?('.gem') }
   s.test_files    = `find spec/*`.split("\n")
   s.executables   = []
