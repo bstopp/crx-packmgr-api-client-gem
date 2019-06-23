@@ -63,7 +63,7 @@ describe 'DefaultApi#download' do
       :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/download.jsp"
     ).with(
       query: { path: path }
-    ).to_return(status: 404)
+    ).to_return(status: 404, headers: {})
 
     begin
       @instance.download(path: path)

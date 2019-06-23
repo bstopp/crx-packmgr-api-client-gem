@@ -1,7 +1,7 @@
 =begin
-#CRX Package Manager API
+CRX Package Manager API
 
-#API for interacting with the CRX Package Manager in AEM.
+API for interacting with the CRX Package Manager in AEM.
 
 OpenAPI spec version: 6.2.0
 Contact: bryan.stopp@gmail.com
@@ -24,12 +24,10 @@ limitations under the License.
 require 'date'
 
 module CrxPackageManager
-
   class ServiceExecResponse
     attr_accessor :success
 
     attr_accessor :msg
-
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -53,7 +51,7 @@ module CrxPackageManager
       return unless attributes.is_a?(Hash)
 
       # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
       if attributes.has_key?(:'success')
         self.success = attributes[:'success']
@@ -62,20 +60,19 @@ module CrxPackageManager
       if attributes.has_key?(:'msg')
         self.msg = attributes[:'msg']
       end
-
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properies with the reasons
+    # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      return invalid_properties
+      invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return true
+      true
     end
 
     # Checks equality by comparing each attribute.
@@ -105,11 +102,11 @@ module CrxPackageManager
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
       self.class.swagger_types.each_pair do |key, type|
-        if type =~ /^Array<(.*)>/i
+        if type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
-            self.send("#{key}=", attributes[self.class.attribute_map[key]].map{ |v| _deserialize($1, v) } )
+            self.send("#{key}=", attributes[self.class.attribute_map[key]].map { |v| _deserialize($1, v) })
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
           self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
@@ -136,7 +133,7 @@ module CrxPackageManager
       when :Float
         value.to_f
       when :BOOLEAN
-        if value.to_s =~ /^(true|t|yes|y|1)$/i
+        if value.to_s =~ /\A(true|t|yes|y|1)\z/i
           true
         else
           false
@@ -147,7 +144,7 @@ module CrxPackageManager
       when /\AArray<(?<inner_type>.+)>\z/
         inner_type = Regexp.last_match[:inner_type]
         value.map { |v| _deserialize(inner_type, v) }
-      when /\AHash<(?<k_type>.+), (?<v_type>.+)>\z/
+      when /\AHash<(?<k_type>.+?), (?<v_type>.+)>\z/
         k_type = Regexp.last_match[:k_type]
         v_type = Regexp.last_match[:v_type]
         {}.tap do |hash|
@@ -191,7 +188,7 @@ module CrxPackageManager
     # @return [Hash] Returns the value in the form of hash
     def _to_hash(value)
       if value.is_a?(Array)
-        value.compact.map{ |v| _to_hash(v) }
+        value.compact.map { |v| _to_hash(v) }
       elsif value.is_a?(Hash)
         {}.tap do |hash|
           value.each { |k, v| hash[k] = _to_hash(v) }
@@ -202,7 +199,5 @@ module CrxPackageManager
         value
       end
     end
-
   end
-
 end

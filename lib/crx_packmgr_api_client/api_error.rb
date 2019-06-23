@@ -1,7 +1,7 @@
 =begin
-#CRX Package Manager API
+CRX Package Manager API
 
-#API for interacting with the CRX Package Manager in AEM.
+API for interacting with the CRX Package Manager in AEM.
 
 OpenAPI spec version: 6.2.0
 Contact: bryan.stopp@gmail.com
@@ -32,12 +32,14 @@ module CrxPackageManager
     #   ApiError.new(:code => 404, :message => "Not Found")
     def initialize(arg = nil)
       if arg.is_a? Hash
+        if arg.key?(:message) || arg.key?('message')
+          super(arg[:message] || arg['message'])
+        else
+          super arg
+        end
+
         arg.each do |k, v|
-          if k.to_s == 'message'
-            super v
-          else
-            instance_variable_set "@#{k}", v
-          end
+          instance_variable_set "@#{k}", v
         end
       else
         super arg

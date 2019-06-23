@@ -1,7 +1,7 @@
 =begin
-#CRX Package Manager API
+CRX Package Manager API
 
-#API for interacting with the CRX Package Manager in AEM.
+API for interacting with the CRX Package Manager in AEM.
 
 OpenAPI spec version: 6.2.0
 Contact: bryan.stopp@gmail.com
@@ -21,7 +21,7 @@ limitations under the License.
 
 =end
 
-require "uri"
+require 'uri'
 
 module CrxPackageManager
   class DefaultApi
@@ -30,7 +30,6 @@ module CrxPackageManager
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-
     # Download a package
     # Downloads the package at the specified path. Returns a Tempfile object.
     # @param [Hash] opts the optional parameters
@@ -38,7 +37,7 @@ module CrxPackageManager
     # @return [File]
     def download(opts = {})
       data, _status_code, _headers = download_with_http_info(opts)
-      return data
+      data
     end
 
     # Download a package
@@ -48,10 +47,10 @@ module CrxPackageManager
     # @return [Array<(File, Fixnum, Hash)>] File data, response status code and response headers
     def download_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi.download ..."
+        @api_client.config.logger.debug 'Calling API: DefaultApi.download ...'
       end
       # resource path
-      local_var_path = "/download.jsp".sub('{format}','json')
+      local_var_path = '/download.jsp'
 
       # query parameters
       query_params = {}
@@ -59,14 +58,8 @@ module CrxPackageManager
 
       # header parameters
       header_params = {}
-
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/octet-stream', 'application/zip']
-      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
-
-      # HTTP header 'Content-Type'
-      local_header_content_type = []
-      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream', 'application/zip'])
 
       # form parameters
       form_params = {}
@@ -86,7 +79,6 @@ module CrxPackageManager
       end
       return data, status_code, headers
     end
-
     # List package groups
     # Returns a list of all package groups available.
     # @param [Hash] opts the optional parameters
@@ -98,7 +90,7 @@ module CrxPackageManager
     # @return [GroupList]
     def groups(opts = {})
       data, _status_code, _headers = groups_with_http_info(opts)
-      return data
+      data
     end
 
     # List package groups
@@ -112,10 +104,10 @@ module CrxPackageManager
     # @return [Array<(GroupList, Fixnum, Hash)>] GroupList data, response status code and response headers
     def groups_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi.groups ..."
+        @api_client.config.logger.debug 'Calling API: DefaultApi.groups ...'
       end
       # resource path
-      local_var_path = "/groups.jsp".sub('{format}','json')
+      local_var_path = '/groups.jsp'
 
       # query parameters
       query_params = {}
@@ -127,14 +119,8 @@ module CrxPackageManager
 
       # header parameters
       header_params = {}
-
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
-      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
-
-      # HTTP header 'Content-Type'
-      local_header_content_type = []
-      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
       form_params = {}
@@ -154,14 +140,13 @@ module CrxPackageManager
       end
       return data, status_code, headers
     end
-
     # Metadata
     # Display metadata about this package manager.
     # @param [Hash] opts the optional parameters
     # @return [InitData]
     def init(opts = {})
       data, _status_code, _headers = init_with_http_info(opts)
-      return data
+      data
     end
 
     # Metadata
@@ -170,24 +155,18 @@ module CrxPackageManager
     # @return [Array<(InitData, Fixnum, Hash)>] InitData data, response status code and response headers
     def init_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi.init ..."
+        @api_client.config.logger.debug 'Calling API: DefaultApi.init ...'
       end
       # resource path
-      local_var_path = "/init.jsp".sub('{format}','json')
+      local_var_path = '/init.jsp'
 
       # query parameters
       query_params = {}
 
       # header parameters
       header_params = {}
-
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
-      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
-
-      # HTTP header 'Content-Type'
-      local_header_content_type = []
-      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
       form_params = {}
@@ -207,14 +186,13 @@ module CrxPackageManager
       end
       return data, status_code, headers
     end
-
     # Package Installation Status
     # Returns a status of the installation of OSGi packages.
     # @param [Hash] opts the optional parameters
     # @return [InstallStatus]
     def installstatus(opts = {})
       data, _status_code, _headers = installstatus_with_http_info(opts)
-      return data
+      data
     end
 
     # Package Installation Status
@@ -223,24 +201,18 @@ module CrxPackageManager
     # @return [Array<(InstallStatus, Fixnum, Hash)>] InstallStatus data, response status code and response headers
     def installstatus_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi.installstatus ..."
+        @api_client.config.logger.debug 'Calling API: DefaultApi.installstatus ...'
       end
       # resource path
-      local_var_path = "/installstatus.jsp".sub('{format}','json')
+      local_var_path = '/installstatus.jsp'
 
       # query parameters
       query_params = {}
 
       # header parameters
       header_params = {}
-
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
-      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
-
-      # HTTP header 'Content-Type'
-      local_header_content_type = []
-      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
       form_params = {}
@@ -260,7 +232,6 @@ module CrxPackageManager
       end
       return data, status_code, headers
     end
-
     # List packages
     # Returns a list of all available packages defined.
     # @param [Hash] opts the optional parameters
@@ -270,7 +241,7 @@ module CrxPackageManager
     # @return [PackageList]
     def list(opts = {})
       data, _status_code, _headers = list_with_http_info(opts)
-      return data
+      data
     end
 
     # List packages
@@ -282,10 +253,10 @@ module CrxPackageManager
     # @return [Array<(PackageList, Fixnum, Hash)>] PackageList data, response status code and response headers
     def list_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi.list ..."
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list ...'
       end
       # resource path
-      local_var_path = "/list.jsp".sub('{format}','json')
+      local_var_path = '/list.jsp'
 
       # query parameters
       query_params = {}
@@ -295,14 +266,8 @@ module CrxPackageManager
 
       # header parameters
       header_params = {}
-
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
-      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
-
-      # HTTP header 'Content-Type'
-      local_header_content_type = []
-      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
       form_params = {}
@@ -322,7 +287,6 @@ module CrxPackageManager
       end
       return data, status_code, headers
     end
-
     # Get screenshot
     # Returns the screenshot at the specified path.
     # @param [Hash] opts the optional parameters
@@ -330,7 +294,7 @@ module CrxPackageManager
     # @return [File]
     def screenshot(opts = {})
       data, _status_code, _headers = screenshot_with_http_info(opts)
-      return data
+      data
     end
 
     # Get screenshot
@@ -340,10 +304,10 @@ module CrxPackageManager
     # @return [Array<(File, Fixnum, Hash)>] File data, response status code and response headers
     def screenshot_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi.screenshot ..."
+        @api_client.config.logger.debug 'Calling API: DefaultApi.screenshot ...'
       end
       # resource path
-      local_var_path = "/screenshot.jsp".sub('{format}','json')
+      local_var_path = '/screenshot.jsp'
 
       # query parameters
       query_params = {}
@@ -351,14 +315,8 @@ module CrxPackageManager
 
       # header parameters
       header_params = {}
-
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['image/jpg', 'image/jpeg', 'image/png']
-      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
-
-      # HTTP header 'Content-Type'
-      local_header_content_type = []
-      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+      header_params['Accept'] = @api_client.select_header_accept(['image/jpg', 'image/jpeg', 'image/png'])
 
       # form parameters
       form_params = {}
@@ -378,7 +336,6 @@ module CrxPackageManager
       end
       return data, status_code, headers
     end
-
     # Generic operation service.
     # Provides a different API for executing package manipulation commands. Operates on a specific version of the package.
     # @param cmd The command to execute.
@@ -389,7 +346,7 @@ module CrxPackageManager
     # @return [ServiceExecResponse]
     def service_exec(cmd, name, group, version, opts = {})
       data, _status_code, _headers = service_exec_with_http_info(cmd, name, group, version, opts)
-      return data
+      data
     end
 
     # Generic operation service.
@@ -402,22 +359,30 @@ module CrxPackageManager
     # @return [Array<(ServiceExecResponse, Fixnum, Hash)>] ServiceExecResponse data, response status code and response headers
     def service_exec_with_http_info(cmd, name, group, version, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi.service_exec ..."
+        @api_client.config.logger.debug 'Calling API: DefaultApi.service_exec ...'
       end
       # verify the required parameter 'cmd' is set
-      fail ArgumentError, "Missing the required parameter 'cmd' when calling DefaultApi.service_exec" if cmd.nil?
+      if @api_client.config.client_side_validation && cmd.nil?
+        fail ArgumentError, "Missing the required parameter 'cmd' when calling DefaultApi.service_exec"
+      end
       # verify enum value
-      unless ['build', 'install', 'delete', 'uninstall', 'dryrun', 'replicate'].include?(cmd)
+      if @api_client.config.client_side_validation && !['build', 'install', 'delete', 'uninstall', 'dryrun', 'replicate'].include?(cmd)
         fail ArgumentError, "invalid value for 'cmd', must be one of build, install, delete, uninstall, dryrun, replicate"
       end
       # verify the required parameter 'name' is set
-      fail ArgumentError, "Missing the required parameter 'name' when calling DefaultApi.service_exec" if name.nil?
+      if @api_client.config.client_side_validation && name.nil?
+        fail ArgumentError, "Missing the required parameter 'name' when calling DefaultApi.service_exec"
+      end
       # verify the required parameter 'group' is set
-      fail ArgumentError, "Missing the required parameter 'group' when calling DefaultApi.service_exec" if group.nil?
+      if @api_client.config.client_side_validation && group.nil?
+        fail ArgumentError, "Missing the required parameter 'group' when calling DefaultApi.service_exec"
+      end
       # verify the required parameter 'version' is set
-      fail ArgumentError, "Missing the required parameter 'version' when calling DefaultApi.service_exec" if version.nil?
+      if @api_client.config.client_side_validation && version.nil?
+        fail ArgumentError, "Missing the required parameter 'version' when calling DefaultApi.service_exec"
+      end
       # resource path
-      local_var_path = "/service/exec.json/etc/packages/{group}/{name}-{version}.zip".sub('{format}','json').sub('{' + 'name' + '}', name.to_s).sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s)
+      local_var_path = '/service/exec.json/etc/packages/{group}/{name}-{version}.zip'.sub('{' + 'name' + '}', name.to_s).sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s)
 
       # query parameters
       query_params = {}
@@ -425,14 +390,8 @@ module CrxPackageManager
 
       # header parameters
       header_params = {}
-
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
-      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
-
-      # HTTP header 'Content-Type'
-      local_header_content_type = []
-      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
       form_params = {}
@@ -452,7 +411,6 @@ module CrxPackageManager
       end
       return data, status_code, headers
     end
-
     # Generic operation service.
     # Provides endpoint for executing package manipulation commands. Responses are in the format of the ServiceResponse in the defintions section.
     # @param cmd The command to execute.
@@ -463,7 +421,7 @@ module CrxPackageManager
     # @return [String]
     def service_get(cmd, opts = {})
       data, _status_code, _headers = service_get_with_http_info(cmd, opts)
-      return data
+      data
     end
 
     # Generic operation service.
@@ -476,16 +434,18 @@ module CrxPackageManager
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def service_get_with_http_info(cmd, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi.service_get ..."
+        @api_client.config.logger.debug 'Calling API: DefaultApi.service_get ...'
       end
       # verify the required parameter 'cmd' is set
-      fail ArgumentError, "Missing the required parameter 'cmd' when calling DefaultApi.service_get" if cmd.nil?
+      if @api_client.config.client_side_validation && cmd.nil?
+        fail ArgumentError, "Missing the required parameter 'cmd' when calling DefaultApi.service_get"
+      end
       # verify enum value
-      unless ['help', 'ls', 'rm', 'build', 'inst', 'uninst', 'get'].include?(cmd)
+      if @api_client.config.client_side_validation && !['help', 'ls', 'rm', 'build', 'inst', 'uninst', 'get'].include?(cmd)
         fail ArgumentError, "invalid value for 'cmd', must be one of help, ls, rm, build, inst, uninst, get"
       end
       # resource path
-      local_var_path = "/service.jsp".sub('{format}','json')
+      local_var_path = '/service.jsp'
 
       # query parameters
       query_params = {}
@@ -496,14 +456,8 @@ module CrxPackageManager
 
       # header parameters
       header_params = {}
-
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/octet-stream', 'application/zip', 'text/plain']
-      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
-
-      # HTTP header 'Content-Type'
-      local_header_content_type = []
-      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream', 'application/zip', 'text/plain'])
 
       # form parameters
       form_params = {}
@@ -523,7 +477,6 @@ module CrxPackageManager
       end
       return data, status_code, headers
     end
-
     # Generic operation service.
     # Provides endpoint for executing package manipulation commands. Responses are in the format of the ServiceResponse in the defintions section.
     # @param file Package file to upload
@@ -535,7 +488,7 @@ module CrxPackageManager
     # @return [String]
     def service_post(file, opts = {})
       data, _status_code, _headers = service_post_with_http_info(file, opts)
-      return data
+      data
     end
 
     # Generic operation service.
@@ -549,34 +502,30 @@ module CrxPackageManager
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def service_post_with_http_info(file, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi.service_post ..."
+        @api_client.config.logger.debug 'Calling API: DefaultApi.service_post ...'
       end
       # verify the required parameter 'file' is set
-      fail ArgumentError, "Missing the required parameter 'file' when calling DefaultApi.service_post" if file.nil?
+      if @api_client.config.client_side_validation && file.nil?
+        fail ArgumentError, "Missing the required parameter 'file' when calling DefaultApi.service_post"
+      end
       # resource path
-      local_var_path = "/service.jsp".sub('{format}','json')
+      local_var_path = '/service.jsp'
 
       # query parameters
       query_params = {}
 
       # header parameters
       header_params = {}
-
-      # HTTP header 'Accept' (if needed)
-      local_header_accept = []
-      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
-
       # HTTP header 'Content-Type'
-      local_header_content_type = ['multipart/form-data']
-      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
       # form parameters
       form_params = {}
-      form_params["file"] = file
-      form_params["name"] = opts[:'name'] if !opts[:'name'].nil?
-      form_params["strict"] = opts[:'strict'] if !opts[:'strict'].nil?
-      form_params["force"] = opts[:'force'] if !opts[:'force'].nil?
-      form_params["install"] = opts[:'install'] if !opts[:'install'].nil?
+      form_params['file'] = file
+      form_params['name'] = opts[:'name'] if !opts[:'name'].nil?
+      form_params['strict'] = opts[:'strict'] if !opts[:'strict'].nil?
+      form_params['force'] = opts[:'force'] if !opts[:'force'].nil?
+      form_params['install'] = opts[:'install'] if !opts[:'install'].nil?
 
       # http body (model)
       post_body = nil
@@ -593,7 +542,6 @@ module CrxPackageManager
       end
       return data, status_code, headers
     end
-
     # Get package thumbnail
     # Returns the package's thumbnail image.
     # @param [Hash] opts the optional parameters
@@ -601,7 +549,7 @@ module CrxPackageManager
     # @return [File]
     def thumbnail(opts = {})
       data, _status_code, _headers = thumbnail_with_http_info(opts)
-      return data
+      data
     end
 
     # Get package thumbnail
@@ -611,10 +559,10 @@ module CrxPackageManager
     # @return [Array<(File, Fixnum, Hash)>] File data, response status code and response headers
     def thumbnail_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi.thumbnail ..."
+        @api_client.config.logger.debug 'Calling API: DefaultApi.thumbnail ...'
       end
       # resource path
-      local_var_path = "/thumbnail.jsp".sub('{format}','json')
+      local_var_path = '/thumbnail.jsp'
 
       # query parameters
       query_params = {}
@@ -622,14 +570,8 @@ module CrxPackageManager
 
       # header parameters
       header_params = {}
-
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['image/jpg', 'image/jpeg', 'image/png']
-      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
-
-      # HTTP header 'Content-Type'
-      local_header_content_type = []
-      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+      header_params['Accept'] = @api_client.select_header_accept(['image/jpg', 'image/jpeg', 'image/png'])
 
       # form parameters
       form_params = {}

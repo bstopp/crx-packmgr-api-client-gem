@@ -37,7 +37,7 @@ end
 api_instance = CrxPackageManager::DefaultApi.new
 
 opts = { 
-  path: "path_example" # String | The path to the package to download.
+  path: 'path_example' # String | The path to the package to download.
 }
 
 begin
@@ -91,7 +91,7 @@ end
 api_instance = CrxPackageManager::DefaultApi.new
 
 opts = { 
-  compress_version: "compress_version_example", # String | Compress versions; count all versions of the same packages as a single entry.
+  compress_version: 'compress_version_example', # String | Compress versions; count all versions of the same packages as a single entry.
   include_all: true, # BOOLEAN | Return a total count of all packages. Defaults to false.
   include_root: true, # BOOLEAN | Include the root package. Defaults to false.
   include_my_packages: true, # BOOLEAN | Include the 'my_packages' group. Only applicable if the group has no packages. Defaults to false.
@@ -247,9 +247,9 @@ end
 api_instance = CrxPackageManager::DefaultApi.new
 
 opts = { 
-  q: "q_example", # String | Term to search within package names.
+  q: 'q_example', # String | Term to search within package names.
   include_versions: true, # BOOLEAN | Include versions of package in results.
-  path: "path_example" # String | The path to a specific package definition.
+  path: 'path_example' # String | The path to a specific package definition.
 }
 
 begin
@@ -305,7 +305,7 @@ end
 api_instance = CrxPackageManager::DefaultApi.new
 
 opts = { 
-  path: "path_example" # String | The path to the screenshot.
+  path: 'path_example' # String | The path to the screenshot.
 }
 
 begin
@@ -358,13 +358,13 @@ end
 
 api_instance = CrxPackageManager::DefaultApi.new
 
-cmd = "cmd_example" # String | The command to execute.
+cmd = 'cmd_example' # String | The command to execute.
 
-name = "name_example" # String | The name of the package on which to execute the command.
+name = 'name_example' # String | The name of the package on which to execute the command.
 
-group = "group_example" # String | The group of the package on which to execute the command.
+group = 'group_example' # String | The group of the package on which to execute the command.
 
-version = "version_example" # String | The version of the package on which to execute the command.
+version = 'version_example' # String | The version of the package on which to execute the command.
 
 
 begin
@@ -420,11 +420,11 @@ end
 
 api_instance = CrxPackageManager::DefaultApi.new
 
-cmd = "cmd_example" # String | The command to execute.
+cmd = 'cmd_example' # String | The command to execute.
 
 opts = { 
-  name: "name_example", # String | The name of the package on which to execute the command.
-  group: "group_example", # String | The group of the package on which to execute the command.
+  name: 'name_example', # String | The name of the package on which to execute the command.
+  group: 'group_example', # String | The group of the package on which to execute the command.
   strict: true # BOOLEAN | Fail on an error.
 }
 
@@ -481,10 +481,10 @@ end
 
 api_instance = CrxPackageManager::DefaultApi.new
 
-file = File.new("/path/to/file.txt") # File | Package file to upload
+file = File.new('/path/to/file.txt') # File | Package file to upload
 
 opts = { 
-  name: "name_example", # String | The hint for the package's name if the definiton doesn't have one.
+  name: 'name_example', # String | The hint for the package's name if the definiton doesn't have one.
   strict: true, # BOOLEAN | Fail on an error.
   force: true, # BOOLEAN | Force the package upload.
   install: true # BOOLEAN | Install the package upon upload
@@ -545,7 +545,7 @@ end
 api_instance = CrxPackageManager::DefaultApi.new
 
 opts = { 
-  path: "path_example" # String | The path to the package.
+  path: 'path_example' # String | The path to the package.
 }
 
 begin

@@ -1,7 +1,7 @@
 =begin
-#CRX Package Manager API
+CRX Package Manager API
 
-#API for interacting with the CRX Package Manager in AEM.
+API for interacting with the CRX Package Manager in AEM.
 
 OpenAPI spec version: 6.2.0
 Contact: bryan.stopp@gmail.com

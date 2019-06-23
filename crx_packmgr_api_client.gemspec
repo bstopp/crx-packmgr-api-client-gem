@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 #
 =begin
-#CRX Package Manager API
+CRX Package Manager API
 
-#API for interacting with the CRX Package Manager in AEM.
+API for interacting with the CRX Package Manager in AEM.
 
 OpenAPI spec version: 6.2.0
 Contact: bryan.stopp@gmail.com
@@ -38,22 +38,23 @@ Gem::Specification.new do |s|
   s.license     = "Apache-2.0"
   s.required_ruby_version = ">= 1.9"
 
-  s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
-  s.add_runtime_dependency 'json', '~> 1.8', '>= 1.8.0'
+  s.add_runtime_dependency 'typhoeus', '~> 1.3'
+  s.add_runtime_dependency 'json', '~> 2.0'
+  s.add_runtime_dependency 'xml-simple', '~>1.1'
 
-  s.add_development_dependency 'rspec', '~> 3.4', '>= 3.4.0'
-  s.add_development_dependency 'vcr', '~> 3.0', '>= 3.0.1'
-  s.add_development_dependency 'webmock', '~> 2.3', '>= 2.3.1'
-  s.add_development_dependency 'autotest', '~> 4.4', '>= 4.4.6'
-  s.add_development_dependency 'autotest-rails-pure', '~> 4.1', '>= 4.1.2'
-  s.add_development_dependency 'autotest-growl', '~> 0.2', '>= 0.2.16'
-  s.add_development_dependency 'autotest-fsevent', '~> 0.2', '>= 0.2.11'
+  s.add_development_dependency 'rspec', '~> 3.8'
+  s.add_development_dependency 'vcr', '~> 5.0'
+  s.add_development_dependency 'webmock', '~> 3.6'
+  s.add_development_dependency 'autotest', '~> 5.0'
+  s.add_development_dependency 'autotest-rails-pure', '~> 4.1'
+  s.add_development_dependency 'autotest-growl', '~> 0.2'
+  s.add_development_dependency 'autotest-fsevent', '~> 0.2'
 
-  s.add_development_dependency 'rubocop'
-  s.add_development_dependency 'simplecov'
-  s.add_development_dependency 'codeclimate-test-reporter'
+  s.add_development_dependency 'rubocop', '~>0'
+  s.add_development_dependency 'simplecov', '~>0'
+  s.add_development_dependency 'codeclimate-test-reporter', '~>1.0'
 
-  s.files         = `find *`.split("\n").uniq.sort.select{|f| !f.empty? }
+  s.files         = `find *`.split("\n").uniq.sort.select{|f| !f.empty? && !f.end_with?('.gem') }
   s.test_files    = `find spec/*`.split("\n")
   s.executables   = []
   s.require_paths = ["lib"]

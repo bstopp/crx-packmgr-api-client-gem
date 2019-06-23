@@ -62,7 +62,7 @@ describe 'DefaultApi#screenshot' do
       :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/screenshot.jsp"
     ).with(
       query: { path: path }
-    ).to_return(status: 404)
+    ).to_return(status: 404, headers: {})
 
     begin
       @instance.screenshot(path: path)

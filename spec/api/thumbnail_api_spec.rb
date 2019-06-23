@@ -62,7 +62,7 @@ describe 'DefaultApi#thumbnail' do
       :get, "#{cfg.scheme}://#{cfg.host}#{cfg.base_path}/thumbnail.jsp"
     ).with(
       query: { path: path }
-    ).to_return(status: 404)
+    ).to_return(status: 404, headers: {})
 
     begin
       @instance.thumbnail(path: path)

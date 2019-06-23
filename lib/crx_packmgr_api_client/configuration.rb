@@ -1,7 +1,7 @@
 =begin
-#CRX Package Manager API
+CRX Package Manager API
 
-#API for interacting with the CRX Package Manager in AEM.
+API for interacting with the CRX Package Manager in AEM.
 
 OpenAPI spec version: 6.2.0
 Contact: bryan.stopp@gmail.com
@@ -87,6 +87,11 @@ module CrxPackageManager
     # Default to 0 (never times out).
     attr_accessor :timeout
 
+    # Set this to false to skip client side validation in the operation.
+    # Default to true.
+    # @return [true, false]
+    attr_accessor :client_side_validation
+
     ### TLS/SSL setting
     # Set this to false to skip verifying SSL certificate when calling API from https server.
     # Default to true.
@@ -140,6 +145,7 @@ module CrxPackageManager
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0
+      @client_side_validation = true
       @verify_ssl = true
       @verify_ssl_host = true
       @params_encoding = nil
@@ -175,7 +181,7 @@ module CrxPackageManager
     def base_path=(base_path)
       # Add leading and trailing slashes to base_path
       @base_path = "/#{base_path}".gsub(/\/+/, '/')
-      @base_path = "" if @base_path == "/"
+      @base_path = '' if @base_path == '/'
     end
 
     def base_url
