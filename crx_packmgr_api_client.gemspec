@@ -50,7 +50,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'autotest-growl', '~> 0.2'
   s.add_development_dependency 'autotest-fsevent', '~> 0.2'
 
-  s.add_development_dependency 'rubocop', '~>0'
+  s.add_development_dependency 'rubocop', '~>0', '>=0.49.0'
   s.add_development_dependency 'simplecov', '~>0'
   s.add_development_dependency 'codeclimate-test-reporter', '~>1.0'
 
