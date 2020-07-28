@@ -30,7 +30,7 @@ GEM
     gem-release (2.0.1)
     hashdiff (0.4.0)
     jaro_winkler (1.5.3)
-    json (2.2.0)
+    json (2.3.1)
     minitest (5.11.3)
     minitest-autotest (1.1.1)
       minitest-server (~> 1.0)
