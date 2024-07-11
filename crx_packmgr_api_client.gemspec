@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
   s.license     = "Apache-2.0"
   s.required_ruby_version = ">= 1.9"
 
-  s.add_runtime_dependency 'typhoeus', '~> 1.3'
+  s.add_runtime_dependency 'typhoeus', '~> 1.4'
   s.add_runtime_dependency 'json', '~> 2.0'
   s.add_runtime_dependency 'xml-simple', '~>1.1'
 
